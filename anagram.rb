@@ -1,17 +1,16 @@
 require_relative 'reverse_letters'
 
-def find_anagram(word)
-	length = word.length
-	word = word.split("")
+def self.find_anagrams(string)
+	letters = string.split(//)
 
-	anagram = []	
+	anagrams = []	
 
-	word.each_with_index do |letters, index|
-		remaining_letters = word.select {|l| l != letters}
-		anagram << letters + remaining_letters.join
+	letters.each do |letter|
+		remaining = letters.select { |l| l != letter }
 
-		anagram << letters + reverse_letters(remaining_letters).join
+		anagrams << letter + remaining.join('')
+		anagrams << letter + reverse_letters(remaining).join('')
 	end
 
-	anagram
+	anagrams
 end
