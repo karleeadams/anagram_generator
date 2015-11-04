@@ -1,6 +1,8 @@
 <p>Anagrams For The Word... <br /><span> <%= "#{@word.upcase}" %></span></p>
-<ul>
-
-		<li><%= "#{@anagrams}" %></li>
+<ul class="anagrams">
+    <% if !@anagrams.nil? %>
+      <% @anagrams.each do |word| %>
+        <li><%= word.text.upcase %></li>
+      <% end %>
+    <% end %>
 </ul>
-
