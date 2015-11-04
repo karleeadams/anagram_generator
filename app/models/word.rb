@@ -1,35 +1,39 @@
 class Word < ActiveRecord::Base
 
+before_create :add_letters
+
+def add_letters 
+	characters = self.text.chars
+	alphabetized_characters = characters.join
+	self.letters = alphabetized_characters.join
+end
+
 def self.find_anagrams(string)
-	combinations = []
+	
 	letters = string.split(//)
-
-	letters.each do |letter|
-		remaining = letters.select { |l| l != letter }
-
-		anagrams << letter + remaining.join('')
-		anagrams << letter + reverse_letters(remaining).join('')
-	end
-
+	
 	anagrams = []
 
-	combinations.each do |combo|
-		if Word.find_by_text(combo).present?
-			anagrams << combo
-		end
-	end
-	combinations	
-
+		
+	letters.each do |letter| 
+		remaining = letters.select { |l| l != letter }
+		anagrams << letter + remaining.join('')
+		anagrams << letter + reverse_letters(remaining).join('')
+    end
+		
+	anagrams
 end
- 
- def self.reverse_letters(letters)
+
+
+
+def self.reverse_letters(letters)
 	length = letters.length
 	reversed_letters = Array.new(length)
 
 	letters.each_with_index do |letter, index|
 		reversed_letters[length - index - 1] = letter
-	end
+end
 
 	reversed_letters
-	end
+end
 end

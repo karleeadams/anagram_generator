@@ -8,7 +8,7 @@ development:
   host: localhost
   username: postgres
   password: jkajka
-    
+
 test:
   adapter: postgresql
   database: numerology_test
