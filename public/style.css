@@ -88,3 +88,7 @@ span {
 ul {
 	text-align: center;
 }
+
+.error {
+	padding: .5em;
+}
