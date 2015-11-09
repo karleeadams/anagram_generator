@@ -1,8 +1,18 @@
-<p>Anagrams For The Word... <br /><span> <%= "#{@word.upcase}" %></span></p>
-<ul class="anagrams">
-    <% if !@anagrams.nil? %>
-      <% @anagrams.each do |word| %>
-        <li><%= word.text.upcase %></li>
-      <% end %>
-    <% end %>
-</ul>
+<div class="wrapper">
+	<div class="image">
+		<img src="/images/tiles-02.png">
+	</div>
+	<div class="text">
+		<p>Anagrams For The Word... <br /><span> <%= "#{@word.upcase}" %></span></p>
+		<ul class="anagrams">
+			<% if !@anagrams.nil? %>
+			    <% @anagrams.each do |word| %>
+			      <li class="anagrams"><%= word.text.upcase %></li>
+			    <% end %>
+			<% end %>
+		</ul>
+		<p class="navlabel">Do You Think We Are Missing An Anagram?</p>
+		<a class="nav" id="words" href="/words">List of Words</a>
+		<a class="nav" href="/words/new">Add New Word</a>
+	</div>
+</div>
