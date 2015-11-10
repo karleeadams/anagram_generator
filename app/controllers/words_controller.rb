@@ -15,6 +15,7 @@ end
 
 get '/words/:id/edit' do
   @word = Word.find_by_id(params[:id])
+  @word.save
 
   erb :"/words/edit"
 end

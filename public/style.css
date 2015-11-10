@@ -189,3 +189,15 @@ td a:hover {
 	background-color: #D62B47;
 	cursor: pointer;
 }
+.control-label {
+	color: #757375;
+	font-size: .8em;
+}
+.form-control {
+	color: #757375;
+	font-size: 1.2em;
+	width: 100%;
+	border: 1px #E0DFE0 solid;
+	padding: .5em;
+	margin-bottom: 1.5em;
+}
